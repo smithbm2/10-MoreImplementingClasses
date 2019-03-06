@@ -62,6 +62,7 @@ def main():
         run_test_is_parallel()
     if m1t.is_implemented('reset'):
         run_test_reset()
+        run_test_reset()
 
 
 ###############################################################################
@@ -229,8 +230,8 @@ class Line(object):
         self.number_of_clones = 0
         self.start = start.clone()
         self.end = end.clone()
-        self.original_start = self.start
-        self.original_end = self.end
+        self.original_start = self.start.clone()
+        self.original_end = self.end.clone()
 
     def __repr__(self):
         """
@@ -703,7 +704,7 @@ class Line(object):
             print(line2)  # Should print: Line[(0, 1), (10, 20)]
         """
         # ---------------------------------------------------------------------
-        # TODO: 13.
+        # DONE: 13.
         #   a. READ the above specification, including the Example.
         #        ** ASK QUESTIONS AS NEEDED. **
         #        ** Be sure you understand it, ESPECIALLY the Example.

@@ -3,8 +3,8 @@ A   CapitalT   class and functions that use/test it.
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Mark Hays, Amanda Stouder, Aaron Wilkin, their colleagues,
-         and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         and Braden Smith.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 
@@ -20,7 +20,7 @@ def main():
     print('Un-comment the calls in MAIN one by one')
     print(' to run the testing code as you complete the TODOs.')
 
-    # run_test_simple_t()
+    run_test_simple_t()
     # run_test_set_colors()
     # run_test_move_by()
     # run_test_clone()
@@ -171,6 +171,15 @@ class CapitalT(object):
         #   Note: Implement   attach_to   before testing this __init__ method.
         # ---------------------------------------------------------------------
 
+        self.intersection_center = intersection_center
+        self.width = width
+        self.height = height
+        self.letter_thickness = letter_thickness
+        h_rect = rg.Rectangle(rg.Point(intersection_center.x - width/2, intersection_center.y - letter_thickness/2), rg.Point(intersection_center.x + width/2, intersection_center.y + letter_thickness/2))
+        v_rect = rg.Rectangle(rg.Point(intersection_center.x - letter_thickness/2, intersection_center.y - letter_thickness/2), rg.Point(intersection_center.x + letter_thickness/2, height - intersection_center.y/2))
+        self.h_rect = h_rect
+        self.v_rect = v_rect
+
     def attach_to(self, window):
         """
         What comes in:
@@ -198,6 +207,9 @@ class CapitalT(object):
         #     c. Compare the graphics window to the   simple_t.pdf   pictures.
         #        They should look exactly the same as each other.
         # ---------------------------------------------------------------------
+        self.v_rect.attach_to(window)
+        self.h_rect.attach_to(window)
+
 
     def set_colors(self, fill_color, outline_color):
         """
