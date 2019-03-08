@@ -95,6 +95,7 @@ def run_test_clone():
         t = first_t.clone()
         if k < 2:
             t.set_colors('white', 'black')
+        print(100*k,20*k)
         t.move_by(100 * k, 20 * k)
         t.attach_to(window)
     first_t.move_by(0, 200)
@@ -285,12 +286,15 @@ class CapitalT(object):
         #        the T moves through, but there is only one T at any moment.
         # ---------------------------------------------------------------------
 
-        #self.intersection_center.x = dx + self.intersection_center.x
-        #self.intersection_center.y = self.intersection_center.y + dy
+        self.intersection_center.x = dx + self.intersection_center.x
+        self.intersection_center.y = self.intersection_center.y + dy
+        print(self.intersection_center)
+        self.intersection_center = rg.Point(self.intersection_center.x,self.intersection_center.y)
         self.h_rect.corner_1 = rg.Point(self.h_rect.corner_1.x + dx, self.h_rect.corner_1.y + dy)
         self.h_rect.corner_2 = rg.Point(self.h_rect.corner_2.x + dx, self.h_rect.corner_2.y + dy)
         self.v_rect.corner_1 = rg.Point(self.v_rect.corner_1.x + dx, self.v_rect.corner_1.y + dy)
         self.v_rect.corner_2 = rg.Point(self.v_rect.corner_2.x + dx, self.v_rect.corner_2.y + dy)
+        print(self.h_rect.corner_1, self.h_rect.corner_2)
 
     def clone(self):
         """
