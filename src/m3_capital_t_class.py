@@ -286,8 +286,8 @@ class CapitalT(object):
         #        the T moves through, but there is only one T at any moment.
         # ---------------------------------------------------------------------
 
-        self.intersection_center.x = dx + self.intersection_center.x
-        self.intersection_center.y = self.intersection_center.y + dy
+        #self.intersection_center.x = dx + self.intersection_center.x
+        #self.intersection_center.y = self.intersection_center.y + dy
         print(self.intersection_center)
         self.intersection_center = rg.Point(self.intersection_center.x,self.intersection_center.y)
         self.h_rect.corner_1 = rg.Point(self.h_rect.corner_1.x + dx, self.h_rect.corner_1.y + dy)
